@@ -1,4 +1,5 @@
 import { Container, Table } from "react-bootstrap";
+import { TableRow } from "../TableRow/TableRow";
 
 export const MainTable = ({matchData}) => {
     
@@ -7,16 +8,17 @@ export const MainTable = ({matchData}) => {
       <Table bordered sm reponsive="sm">
         <thead>
           <tr>
-            <th>Match</th>
-            <th>Result</th>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Final Result</th>
+            <th>Half Time Result</th>
+            <th>Match Date</th>
+            <th>Stadium</th>
           </tr>
         </thead>
         <tbody>
             {matchData.schedules.map((match) => (
-                <tr>
-                <td>{match.sport_event.competitors[0].name} vs {match.sport_event.competitors[1].name}</td>
-                <td>{match.sport_event_status.home_score}:{match.sport_event_status.away_score}</td>
-              </tr>
+               <TableRow match={match}/>
             ))}
           
         </tbody>

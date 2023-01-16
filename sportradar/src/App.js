@@ -19,9 +19,9 @@ function App() {
     setMatchData(data);
   }
 
-  // useEffect(() => {
-  //   getApiData();
-  // }, [])
+  useEffect(() => {
+    getApiData();
+  }, [])
 
 
   return (
