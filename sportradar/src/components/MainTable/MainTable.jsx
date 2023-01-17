@@ -17,7 +17,7 @@ export const MainTable = ({matchData}) => {
           </tr>
         </thead>
         <tbody>
-            {matchData.schedules.map((match) => (
+            {matchData && matchData.schedules.map((match) => (
                <TableRow match={match}/>
             ))}
           
