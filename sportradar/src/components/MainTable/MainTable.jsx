@@ -2,6 +2,10 @@ import { Container, Table } from "react-bootstrap";
 import { TableRow } from "../TableRow/TableRow";
 
 export const MainTable = ({matchData}) => {
+
+  const handleNavigate = () => {
+
+  }
     
   return (
     <Container>
@@ -18,7 +22,7 @@ export const MainTable = ({matchData}) => {
         </thead>
         <tbody>
             {matchData && matchData.schedules.map((match) => (
-               <TableRow match={match}/>
+               <TableRow match={match} onClick={handleNavigate}/>
             ))}
           
         </tbody>

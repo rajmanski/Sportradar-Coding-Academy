@@ -9,7 +9,8 @@ function App() {
   const [season, setSeason] = useState('20/21');
   const [apiQuery, setApiQuery] = useState();
 
-  const getApiData = async (season='sr:season:77453') => {
+  //Function that download season data from API (defaultSeason=2020/2021)
+  const getSeasonData = async (season='sr:season:77453') => {
     const options = {
       method: "GET",
       headers: new Headers({ 'content-type': 'application/json',  'Host': "api.sportradar.us"}),
@@ -23,32 +24,33 @@ function App() {
     setMatchData(data);
   }
 
+  //Function that check which season was clicked on dropdown menu
   const getWantedSeason = async (value) => {
     setMatchData(null);
     setSeason(value.split(' ')[1]);
     switch(value.split(' ')[1]) {
       case '20/21':
         setApiQuery('sr:season:77453');
-        console.log(apiQuery);
         break;
         case '21/22':
         setApiQuery('sr:season:84320');
-        console.log(apiQuery);
         break;
         case '22/23':
         setApiQuery('sr:season:94031');
-        console.log(apiQuery);
         break;
         default:
           console.log('Error happened');
     }
   }
 
+  //useEffect, which downloads API season data on the start and rerun after everydropdown menu click
   useEffect(() => {
-    console.log(apiQuery);
-    getApiData(apiQuery);
+    getSeasonData(apiQuery);
   }, [ apiQuery])
 
+  const goToMatchData = async () => {
+    
+  }
 
   return (
     <>
