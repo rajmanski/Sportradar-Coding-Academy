@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export const TableRow = ({match}) => {
 
 
@@ -12,7 +10,6 @@ export const TableRow = ({match}) => {
     const matchDate = date.split('T')[0];
     let result = '';
     let halfTimeResult = ';'
-    let winner = '';
 
     if ((homeTeamScore !== undefined) && (awayTeamScore !== undefined)) {
         result = `${homeTeamScore} : ${awayTeamScore}`;
@@ -23,11 +20,9 @@ export const TableRow = ({match}) => {
     }
 
     
-    
-
 
     return (
-        <tr>
+        <tr   onClick={()=>{console.log("test")}}>
         <td style={{'backgroundColor': homeTeamScore > awayTeamScore ? 'green' : homeTeamScore === awayTeamScore ? 'orange' : 'red'}}>{homeTeamName}</td>
         <td style={{'backgroundColor': homeTeamScore > awayTeamScore ? 'red' : homeTeamScore === awayTeamScore ? 'orange' : 'green'}}>{awayTeamName}</td>
         <td>{result}</td>

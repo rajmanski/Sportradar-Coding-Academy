@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import './App.css';
-import { MainTable } from './components/MainTable/MainTable';
-import { SeasonDropdown } from './components/SeasonDropdown/SeasonDropdown';
+import { Route, Routes,  } from 'react-router-dom';
+import { MainTable } from '../MainTable/MainTable';
+import { SeasonDropdown } from '../SeasonDropdown/SeasonDropdown';
 
-function App() {
+
+export const HomePage = () => {
 
   const [matchData, setMatchData] = useState(null);
   const [season, setSeason] = useState('20/21');
@@ -48,13 +49,9 @@ function App() {
     getSeasonData(apiQuery);
   }, [ apiQuery])
 
-  const goToMatchData = async () => {
-    
-  }
-
   return (
     <>
-    <h1>Ekstraklasa {season}</h1>
+    <h1 onClick={() => console.log('lalal')}>Ekstraklasa {season}</h1>
     <SeasonDropdown getWantedSeason={getWantedSeason}/>
       {!matchData && (
         <div>Loading....</div>
@@ -66,4 +63,4 @@ function App() {
   );
 }
 
-export default App;
+
