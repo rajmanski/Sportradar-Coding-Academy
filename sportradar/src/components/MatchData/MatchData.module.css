@@ -1,0 +1,148 @@
+body {
+    background-color: whitesmoke;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1440px;
+    text-align: center;
+    font-family: 'Roboto Slab';
+}
+
+.mainInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    
+}
+
+.statistics {
+    padding-top: 30px;
+    display: block;
+    width: 40%;
+    margin: 10px auto;
+    border: 1px solid rgb(221, 214, 214);
+    border-radius: 7px;
+    box-shadow: -2px 4px 24px 0px rgba(212, 213, 216, 1);
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+}
+
+.stats p {
+    font-size: 1.1rem;
+}
+
+.squads {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    width: 60%;
+    margin: 0 auto;
+    gap: 200px;
+    margin-top: 30px;
+    border: 1px solid rgb(221, 214, 214);
+    border-radius: 7px;
+    box-shadow: -2px 4px 24px 0px rgba(212, 213, 216, 1);
+}
+
+.playerColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.player {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.player img {
+    width: 32px;
+    height: 32px;
+}
+
+.player p {
+    position: relative;
+    top: 6px;
+}
+
+.categoryWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.categoryWrapper img {
+    width: 32px;
+    height: 32px;
+}
+
+.categoryWrapper p {
+    position: relative;
+    top: 6px;
+    font-weight: bold;
+}
+
+.mainInfo h2{
+    display: flex;
+    justify-content: space-evenly  ;
+}
+
+.btn {
+    width: 10%;
+    margin: 0 auto;
+    border-radius: 7px;
+    border-color: rgb(63, 63, 63);
+    background-color: white;
+}
+
+.backToHome {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.backToHome img {
+    width: 40px;
+    height: 40px;
+}
+.backToHome img:hover {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .squads {
+        gap: 30px
+    }
+
+    .statistics {
+        width: 100%;
+    }
+  }
+
+  @media (max-width: 1090px) {
+
+    .squads {
+        width: 100%;
+    }
+
+    .btn {
+        width: 30%;
+    }
+  }

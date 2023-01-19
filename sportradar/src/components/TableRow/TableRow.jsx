@@ -1,5 +1,6 @@
-export const TableRow = ({match}) => {
+import { useNavigate } from "react-router-dom";
 
+export const TableRow = ({match}) => {
 
     const homeTeamName = match.sport_event.competitors[0].name;
     const awayTeamName = match.sport_event.competitors[1].name;
@@ -8,6 +9,7 @@ export const TableRow = ({match}) => {
     const stadium = match.sport_event.venue.name;
     const date = match.sport_event.start_time;
     const matchDate = date.split('T')[0];
+    const navigate = useNavigate();
     let result = '';
     let halfTimeResult = ';'
 
@@ -19,10 +21,14 @@ export const TableRow = ({match}) => {
         halfTimeResult = 'Match postponed';
     }
 
+    const handleClick = () => {
+        navigate(`/match/${match.sport_event.id}`)
+    }
+
     
 
     return (
-        <tr   onClick={()=>{console.log("test")}}>
+        <tr onClick={handleClick}>
         <td style={{'backgroundColor': homeTeamScore > awayTeamScore ? 'green' : homeTeamScore === awayTeamScore ? 'orange' : 'red'}}>{homeTeamName}</td>
         <td style={{'backgroundColor': homeTeamScore > awayTeamScore ? 'red' : homeTeamScore === awayTeamScore ? 'orange' : 'green'}}>{awayTeamName}</td>
         <td>{result}</td>
