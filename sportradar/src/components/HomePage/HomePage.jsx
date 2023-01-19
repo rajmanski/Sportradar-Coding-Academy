@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes,  } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
 import { MainTable } from '../MainTable/MainTable';
 import { SeasonDropdown } from '../SeasonDropdown/SeasonDropdown';
 
@@ -50,16 +50,20 @@ export const HomePage = () => {
   }, [ apiQuery])
 
   return (
-    <>
-    <h1 onClick={() => console.log('lalal')}>Ekstraklasa {season}</h1>
-    <SeasonDropdown getWantedSeason={getWantedSeason}/>
+    <div className='mainContainer'>
+    <h1>Ekstraklasa {season}</h1>
+    <div className="dropdown">
+      <SeasonDropdown getWantedSeason={getWantedSeason}/>
+    </div>
       {!matchData && (
-        <div>Loading....</div>
+        <div className='loader'>
+          <Spinner animation="border" variant="dark" size="xxl"/>
+        </div>
       )}
       {matchData &&  (
-        <MainTable matchData={matchData}/>
+          <MainTable matchData={matchData}/>
       )}
-    </>
+    </div>
   );
 }
 

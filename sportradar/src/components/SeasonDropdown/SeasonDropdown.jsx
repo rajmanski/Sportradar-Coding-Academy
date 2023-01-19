@@ -5,9 +5,9 @@ import { Button, ButtonGroup, Dropdown } from 'react-bootstrap';
 export const SeasonDropdown = ({getWantedSeason}) => {
     return (
         <Dropdown as={ButtonGroup}>
-          <Button variant="secondary">Seasons</Button>
+          <Button variant="dark">Seasons</Button>
     
-          <Dropdown.Toggle split variant="secondary" id="dropdown-split-basic" />
+          <Dropdown.Toggle split variant="dark" id="dropdown-split-basic" />
     
           <Dropdown.Menu>
             <Dropdown.Item onClick={(e) => getWantedSeason(e.target.outerText)}>Ekstraklasa 20/21</Dropdown.Item>

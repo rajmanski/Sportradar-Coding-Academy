@@ -5,7 +5,7 @@ export const MainTable = ({matchData}) => {
     
   return (
     <Container>
-      <Table bordered sm reponsive="sm">
+      <Table bordered sm size="sm" responsive hover>
         <thead>
           <tr>
             <th>Home Team</th>

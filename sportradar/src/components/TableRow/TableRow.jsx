@@ -29,8 +29,8 @@ export const TableRow = ({match}) => {
 
     return (
         <tr onClick={handleClick}>
-        <td style={{'backgroundColor': homeTeamScore > awayTeamScore ? 'green' : homeTeamScore === awayTeamScore ? 'orange' : 'red'}}>{homeTeamName}</td>
-        <td style={{'backgroundColor': homeTeamScore > awayTeamScore ? 'red' : homeTeamScore === awayTeamScore ? 'orange' : 'green'}}>{awayTeamName}</td>
+        <td style={{'backgroundColor': homeTeamScore > awayTeamScore ? '#6ad48b' : homeTeamScore === awayTeamScore ? '#d49b6a' : '#d46f6a'}}>{homeTeamName}</td>
+        <td style={{'backgroundColor': homeTeamScore > awayTeamScore ? '#d46f6a' : homeTeamScore === awayTeamScore ? '#d49b6a' : '#6ad48b'}}>{awayTeamName}</td>
         <td>{result}</td>
         <td>{halfTimeResult}</td>
         <td>{matchDate}</td>

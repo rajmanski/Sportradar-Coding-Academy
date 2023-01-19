@@ -27,18 +27,19 @@ export const MatchData = () => {
   const homeSquad = matchData?.statistics.totals.competitors[0].players;
   const awaySquad = matchData?.statistics.totals.competitors[1].players;
 
-//   if (homeStats.offsides === undefined || !homeStats.offsides) {
-//     homeStats.offsides = 0;
-//   }
-//   if (awayStats.offsides === undefined) {
-//     awayStats.offsides = 0;
-//   }
-
-
+    // if (!homeStats.offsides) {
+    //     homeStats.offsides = 0;
+    // }
+    // if (!awayStats.offsides) {
+    //     awayStats.offsides = 0;
+    // }
+    
+  //Button that handle going back to the home page
   const handleBackHome = () => {
-    navigate('/')
-  }
+    navigate("/");
+  };
 
+  //Function that get's specific match data
   const getMatchData = async (id) => {
     const options = {
       method: "GET",
@@ -75,88 +76,123 @@ export const MatchData = () => {
           </div>
           <div className={styles.statistics}>
             <div className={styles.row}>
-                <div className={styles.categoryWrapper}>
-                    <img src={require('../../images/possession.png')} alt="Ball possession icon" />
+              <div className={styles.categoryWrapper}>
+                <img
+                  src={require("../../images/possession.png")}
+                  alt="Ball possession icon"
+                />
                 <p>Ball possession</p>
-                </div>
-                <div className={styles.stats}>
-                    <p>{homeStats.ball_possession} %</p>
-                    <p>{awayStats.ball_possession} %</p>
-                </div>
+              </div>
+              <div className={styles.stats}>
+                <p>{homeStats.ball_possession} %</p>
+                <p>{awayStats.ball_possession} %</p>
+              </div>
             </div>
             <div className={styles.row}>
-                <div className={styles.categoryWrapper}>
-                    <img src={require('../../images/foul.png')} alt="Foul icon" />
+              <div className={styles.categoryWrapper}>
+                <img src={require("../../images/foul.png")} alt="Foul icon" />
                 <p>Fouls commited</p>
-                </div>
-                <div className={styles.stats}>
-                    <p>{homeStats.fouls}</p>
-                    <p>{awayStats.fouls}</p>
-                </div>
+              </div>
+              <div className={styles.stats}>
+                <p>{homeStats.fouls}</p>
+                <p>{awayStats.fouls}</p>
+              </div>
             </div>
             <div className={styles.row}>
-            <div className={styles.categoryWrapper}>
-                <img src={require('../../images/offside.png')} alt="Offside icon" />
+              <div className={styles.categoryWrapper}>
+                <img
+                  src={require("../../images/offside.png")}
+                  alt="Offside icon"
+                />
                 <p>Offsides</p>
-            </div>
-                <div className={styles.stats}>
-                    <p>{homeStats.offsides}</p>
-                    <p>{awayStats.offsides}</p>
-                </div>
-            </div>
-            <div className={styles.row}>
-                <div className={styles.categoryWrapper}>
-                    <img src={require('../../images/redcard.png')} alt="Red card icon" />
-                    <p>Red cards</p>
-                </div>
-                <div className={styles.stats}>
-                    <p>{homeStats.red_cards}</p>
-                    <p>{awayStats.red_cards}</p>
-                </div>
-            </div>
-            <div className={styles.row}>
-                <div className={styles.categoryWrapper}>
-                    <img src={require('../../images/yellowcard.png')} alt="Yellow card icon" />
-                    <p>Yellow cards</p>
-                </div>
-                <div className={styles.stats}>
-                    <p>{homeStats.yellow_cards}</p>
-                    <p>{awayStats.yellow_cards}</p>
-                </div>
+              </div>
+              <div className={styles.stats}>
+                {homeSquad.offsides && (
+                  <p>{homeStats.offsides}</p>
+                )}
+                {!homeSquad.offsides && (
+                  <p>0</p>
+                )}
+                {awaySquad.offsides && (
+                  <p>{awayStats.offsides}</p>
+                )}
+                {!awaySquad.offsides && (
+                  <p>0</p>
+                )}
+                
+              </div>
             </div>
             <div className={styles.row}>
-                <div className={styles.categoryWrapper}>
-                    <img src={require('../../images/shot.png')} alt="Shot icon" />
-                    <p>Shots</p>
-                </div>
-                <div className={styles.stats}>
-                    <p>{homeStats.shots_total}</p>
-                    <p>{awayStats.shots_total}</p>
-                </div>
+              <div className={styles.categoryWrapper}>
+                <img
+                  src={require("../../images/redcard.png")}
+                  alt="Red card icon"
+                />
+                <p>Red cards</p>
+              </div>
+              <div className={styles.stats}>
+                <p>{homeStats.red_cards}</p>
+                <p>{awayStats.red_cards}</p>
+              </div>
             </div>
             <div className={styles.row}>
-                <div className={styles.categoryWrapper}>
-                    <img src={require('../../images/subs.png')} alt="Substitutions icon" />
-                    <p>Substitiutons</p>
-                </div>
-                <div className={styles.stats}>
-                    <p>{homeStats.substitutions}</p>
-                    <p>{awayStats.substitutions}</p>
-                </div>
+              <div className={styles.categoryWrapper}>
+                <img
+                  src={require("../../images/yellowcard.png")}
+                  alt="Yellow card icon"
+                />
+                <p>Yellow cards</p>
+              </div>
+              <div className={styles.stats}>
+                <p>{homeStats.yellow_cards}</p>
+                <p>{awayStats.yellow_cards}</p>
+              </div>
+            </div>
+            <div className={styles.row}>
+              <div className={styles.categoryWrapper}>
+                <img src={require("../../images/shot.png")} alt="Shot icon" />
+                <p>Shots</p>
+              </div>
+              <div className={styles.stats}>
+                <p>{homeStats.shots_total}</p>
+                <p>{awayStats.shots_total}</p>
+              </div>
+            </div>
+            <div className={styles.row}>
+              <div className={styles.categoryWrapper}>
+                <img
+                  src={require("../../images/subs.png")}
+                  alt="Substitutions icon"
+                />
+                <p>Substitiutons</p>
+              </div>
+              <div className={styles.stats}>
+                <p>{homeStats.substitutions}</p>
+                <p>{awayStats.substitutions}</p>
+              </div>
             </div>
           </div>
-          <button className={styles.btn} onClick={() => setShowSquads(!showSquads)}>
+          <button
+            className={styles.btn}
+            onClick={() => setShowSquads(!showSquads)}
+          >
             Show squads
           </button>
           <div className={styles.backToHome} onClick={handleBackHome}>
-            <img src={require('../../images/back.png')} alt="Go to home page icon" />
+            <img
+              src={require("../../images/back.png")}
+              alt="Go to home page icon"
+            />
           </div>
           {showSquads && (
             <div className={styles.squads}>
               <div className={styles.playerColumn}>
                 {homeSquad.map((player) => (
                   <div className={styles.player} key={player.id}>
-                    <img src={require('../../images/player.png')} alt="Player icon" />
+                    <img
+                      src={require("../../images/player.png")}
+                      alt="Player icon"
+                    />
                     <p className={styles.player}>{player.name}</p>
                   </div>
                 ))}
@@ -164,7 +200,10 @@ export const MatchData = () => {
               <div className={styles.playerColumn}>
                 {awaySquad.map((player) => (
                   <div className={styles.player} key={player.id}>
-                    <img src={require('../../images/player.png')} alt="Player icon" />
+                    <img
+                      src={require("../../images/player.png")}
+                      alt="Player icon"
+                    />
                     <p className={styles.player}>{player.name}</p>
                   </div>
                 ))}
